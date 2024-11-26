@@ -1,0 +1,10 @@
+[
+    {
+        "first_name": "Anna",
+        "last_name": "Nowak",
+        "age": 20,
+        "address": "Kraków, ul. Lipowa 15",
+        "postal_code": "31-111",
+        "pesel": "98765432109"
+    }
+]
