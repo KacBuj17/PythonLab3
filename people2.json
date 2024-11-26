@@ -1,0 +1,18 @@
+[
+    {
+        "first_name": "Jan",
+        "last_name": "Nowak",
+        "age": 30,
+        "address": "Warszawa, ul. Kwiatowa 10",
+        "postal_code": "00-001",
+        "pesel": "74967576357"
+    },
+    {
+        "first_name": "Anna",
+        "last_name": "Kowalska",
+        "age": 20,
+        "address": "Kraków, ul. Lipowa 15",
+        "postal_code": "31-111",
+        "pesel": "908765465435"
+    }
+]
