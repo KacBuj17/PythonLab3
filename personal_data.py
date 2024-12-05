@@ -1,6 +1,6 @@
 import json, os
 from typing import List
-from dataclasses import dataclass
+
 
 class PersonalData:
     def __init__(self, first_name, last_name, age, address, postal_code, pesel):
