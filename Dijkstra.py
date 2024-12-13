@@ -1,6 +1,5 @@
 import heapq
 
-
 class Graph:
     def __init__(self):
         self.graph = {}
@@ -16,8 +15,7 @@ class Graph:
             self.add_node(to_node)
         self.graph[from_node].append((to_node, weight))
 
-
-def Dijkstra(graph, start):
+def dijkstra(graph, start, end):
     distances = {node: float('inf') for node in graph.graph}
     distances[start] = 0
     predecessors = {node: None for node in graph.graph}
@@ -37,8 +35,16 @@ def Dijkstra(graph, start):
                 predecessors[neighbor] = current_node
                 heapq.heappush(priority_queue, (distance, neighbor))
 
-    return distances, predecessors
+    path = []
+    current_node = end
+    while current_node is not None:
+        path.append(current_node)
+        current_node = predecessors[current_node]
+    path = path[::-1]
 
+    if distances[end] == float('inf'):
+        return None, None
+    return distances[end], path
 
 if __name__ == "__main__":
     graph = Graph()
@@ -48,9 +54,15 @@ if __name__ == "__main__":
     graph.add_edge('B', 'C', 2)
     graph.add_edge('B', 'D', 6)
     graph.add_edge('C', 'D', 3)
+    graph.add_edge('C', 'E', 1)
+    graph.add_edge('D', 'E', 2)
 
     start_node = 'A'
-    distances, predecessors = Dijkstra(graph, start_node)
+    end_node = 'E'
+    distance, path = dijkstra(graph, start_node, end_node)
 
-    print("Najkrótsze dystanse:", distances)
-    print("Poprzednicy:", predecessors)
+    if distance is not None:
+        print(f"Najkrótsza odległość z {start_node} do {end_node} to {distance}")
+        print(f"Ścieżka: {' -> '.join(path)}")
+    else:
+        print(f"Nie ma ścieżki z {start_node} do {end_node}")
