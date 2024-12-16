@@ -1,5 +1,6 @@
 from collections import deque, defaultdict
 
+
 class AhoCorasick:
     def __init__(self):
         self.trie = {0: {}}

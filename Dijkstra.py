@@ -1,5 +1,6 @@
 import heapq
 
+
 class Graph:
     def __init__(self):
         self.graph = {}
@@ -14,6 +15,7 @@ class Graph:
         if to_node not in self.graph:
             self.add_node(to_node)
         self.graph[from_node].append((to_node, weight))
+
 
 def dijkstra(graph, start, end):
     distances = {node: float('inf') for node in graph.graph}
@@ -45,6 +47,7 @@ def dijkstra(graph, start, end):
     if distances[end] == float('inf'):
         return None, None
     return distances[end], path
+
 
 if __name__ == "__main__":
     graph = Graph()
